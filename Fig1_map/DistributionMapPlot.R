@@ -61,7 +61,6 @@ florida <-  ggplot(data = world) +
         panel.border = element_rect(colour = "black", fill=NA, linewidth=0.1))
 
 #Combine MK and Florida together 
-
 florida_grob <- ggplotGrob(florida)
 plotfinal <- ggdraw(MK_samplingplot) + draw_grob(florida_grob, x = 0.8, y = 0.05, width = 0.2, height = 0.3)
 
