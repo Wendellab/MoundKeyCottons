@@ -1,0 +1,103 @@
+setwd("C:/Users/weixuan/Desktop/MoundKeyPopulation/MK_Figures/Fig6_relate_sfs_td_smc/")
+library(stringr)
+library(dplyr)
+library(grid)   # for the textGrob() function
+library(ggpubr)
+library(ggplot2)
+library(scales)
+library(reshape2)
+library(pheatmap)
+library(correlation)
+library(scales)
+library(ggcorrplot)
+
+
+cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73",  "#0072B2", "#D55E00", "#CC79A7")
+
+#######################################################################
+###################################################################
+###################################################################
+#https://thomasadventure.blog/posts/ggplot2-percentage-scale/
+sum(scan("MoundKey_SFS3.sfs"))
+sfs<- as.data.frame(scan("MoundKey_SFS3.sfs")[c(2:26)]) 
+sfs$site <- as.numeric(rownames(sfs))
+colnames(sfs)[1] <- "frequency"
+
+sfs2 <- sfs %>%
+  mutate(freq = (frequency / sum(frequency))*100)
+
+
+sfsplot <- ggplot(data=sfs2, aes(x=site, y=freq)) +
+  geom_bar(stat="identity", fill="steelblue") +
+  scale_y_continuous(labels = scales::percent_format(scale = 1)) + 
+  ylab ("Proportion of SNPs") +
+  xlab ("Minor allele frequency") +
+  theme_minimal() +
+  theme(#axis.title.x= element_blank(),
+        #axis.ticks.x= element_blank(),
+        #axis.text.x = element_blank(),
+        )
+
+sum(sfs$frequency)
+###############
+
+theta<-read.table("MoundKey_SFS3.thetasWindow.gz.pestPG",sep="\t",header=T)
+mean(theta$Tajima)
+chroms <- unique(theta$Chr)
+chrOrder <- sort(chroms)
+theta$chrOrder <- factor(theta$Chr,levels=chrOrder)
+
+tajamadplot <- ggplot(theta, aes(x=Tajima))+
+  geom_density(color="black", fill="steelblue", alpha = 0.5) +
+  geom_vline(aes(xintercept=mean(theta$Tajima)),
+             color="blue", linetype="dashed", size=1) +
+  
+#  ggplot(theta, aes(x=Chr, y=Tajima)) + 
+#  geom_boxplot( fill = "#56B4E9", alpha = 0.5, outlier.colour = NA) +
+#  geom_hline(yintercept=mean(theta$Tajima), color = 'blue') +
+#  stat_summary(fun=mean, geom="point", shape=18, size=3, color="blue", fill="blue") +
+  ylab("Density") +
+  xlab("Tajima's D") +
+  theme_minimal() +
+  theme(#axis.title.x= element_blank(),
+        #axis.ticks.x= element_blank(),
+    #axis.text.x = element_text(angle = -90, vjust = 0.5, hjust=1, size = 6)
+    )
+
+###########################
+smc <- read.csv("plot.csv", header = T, sep = ',')
+
+colnames(smc) <- c("label", "Year", "Ne", "type" , "num")
+
+breaks = c(100, 1000, 3000,  10000, 100000, 1000000)
+labels = as.character(breaks)
+
+smc.plot <- ggplot(smc, aes(x=Year, y=Ne)) +
+#  geom_rect(aes(xmin=9000, xmax=11000, ymin=0, ymax=Inf), alpha = 0.01, color = "black",
+#            fill = "grey")+ 
+  geom_line(aes(color=label), size =2, show.legend = F) +
+#  geom_point(aes(color=label)) + 
+  scale_y_continuous(trans='log10',labels = scales::comma) + 
+  
+#  scale_x_continuous(trans='log10',labels = trans_format('log10',math_format(10^.x))) +
+  scale_x_continuous(trans='log10',labels = scales::scientific, breaks = breaks) +
+  
+  theme_bw()
+smc.plot
+###################################################
+
+
+library("cowplot")
+
+finalplot <- ggdraw() +
+  draw_plot(pca_plot, x = 0, y = 0.5, width = 0.5, height = 0.5) +
+  draw_plot(tajamadplot , x = 0.5, y = 0.5, width = 0.5, height = 0.5) +
+  draw_plot(sfsplot , x = 0, y = 0, width = 0.5, height = 0.5) +
+  draw_plot(smc.plot, x = 0.5, y = 0, width = 0.5, height = 0.5) +
+  draw_plot_label(label = c("A", "B", "C", "D"), size = 15,
+                  x = c(0, 0.5, 0, 0.5), y = c(1, 1, 0.5, 0.5))
+
+
+pdf("Fig5_MK_variation_n25_final.pdf", width = 13, height = 10)
+finalplot
+dev.off()
