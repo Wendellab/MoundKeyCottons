@@ -16,6 +16,42 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73",  "#0072B2", "#D55E00
 
 #######################################################################
 ###################################################################
+
+pca <- read_table("MK_Known_n25.eigenvec", col_names = FALSE)
+eigenval <- scan("MK_Known_n25.eigenval")
+
+pca <- pca[,-1]
+pve <- data.frame(PC = 1:length(eigenval), pve = eigenval/sum(eigenval)*100)
+
+a <- ggplot(pve, aes(PC, pve)) + geom_bar(stat = "identity")
+a + ylab("Percentage variance explained") + theme_light()
+
+# set names
+names(pca)[1] <- "ind"
+names(pca)[2:ncol(pca)] <- paste0("PC", 1:(ncol(pca)-1))
+pca$Site <- stringr::str_extract(pca$ind, "[^_]*")
+pca$Site <- gsub("MK","",pca$Site )
+#pca$Site <- gsub("AD.*","outgroup",pca$Site )
+
+#options(ggrepel.max.overlaps = Inf)
+unique(pca$Site)
+
+options(ggrepel.max.overlaps = Inf)
+
+pca_plot <- ggplot(pca, aes(PC1, PC2, col = Site, shape = Site)) + geom_point(size = 4) + 
+  geom_text_repel(aes(label= ind, col = Site),  size = 3, segment.alpha =1, show.legend = F) +
+#  geom_text_repel(data=pca[pca$Site == "outgroup",], aes(label= ind, col = Site),  size = 3, segment.alpha =1, show.legend = F) +
+  
+#  ggtitle("Genic SNPs variation \n11,408 filtered SNPs across 100 individuals \n--geno 0 --indep-pairwise 50 10 0.1") +
+  xlab(paste0("PC1 (", signif(pve$pve[1], 3), "%)")) + ylab(paste0("PC2 (", signif(pve$pve[2], 3), "%)")) +
+  scale_color_manual(values=c("Site1" = "#0072B2",
+                              "Site2" = "#E69F00",
+                              "Site3" = "#CC79A7")) +
+  theme_bw() +  
+  theme(legend.position =  c(0.9, 0.8),
+        legend.key = element_rect(fill = "white", colour = "grey30", linetype="dotted")) 
+
+#################################################################
 ###################################################################
 #https://thomasadventure.blog/posts/ggplot2-percentage-scale/
 sum(scan("MoundKey_SFS3.sfs"))
