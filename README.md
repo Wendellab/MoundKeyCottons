@@ -14,7 +14,7 @@ This is needs some work to clean the code and put things in a logical ways! - We
 
 4. Using biallelic SNPs to estimate population genetic groups via [PLINK](https://www.cog-genomics.org/plink/) (PCA) and [LEA](https://bioconductor.org/packages/release/bioc/html/LEA.html).
    
-5. Including additional two AD4 samples as outgroup, and calling bialleic SNPs from the 'combined' VCF with 65 AD1 samples, which include variable and invariable sites.
+5. Building a rooted NJ-tree using bialleic SNPs by including additional two AD4 outgroups. 
 
 ####  ▪️ Genetic variation comparison (Pi, Dxy, Fst, He, Fis, LD)
 1. [Pixy](https://github.com/ksamuk/pixy.git) was applied to 
