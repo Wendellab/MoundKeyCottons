@@ -1,12 +1,10 @@
 # Mound Key Wild Cotton
 
-Ciation: [Ning, W., Rogers, K.M., Hsu, CY. et al. Origin and diversity of the wild cottons (*Gossypium hirsutum*) of Mound Key, Florida. Sci Rep 14, 14046 (2024). https://doi.org/10.1038/s41598-024-64887-8](https://www.nature.com/articles/s41598-024-64887-8)
+### Codes following the data analysis order presented in the paper, including:
 
 This is needs some work to clean the code and put things in a logical ways! - Weixuan is on it   😝
 
 <img src="https://github.com/Wendellab/MoundKeyCottons/blob/main/Supplymentary/IMG_3837.JPG" width="300" />
-
-### Codes following the data analysis order presented in the paper, including:
 
 ####  ▪️ Pop gene analysis (PCA, NJ-tree, Structure)
 1. All AD1 65 samples' raw reads were trimmed with [Trimmomatic](https://github.com/usadellab/Trimmomatic.git).
@@ -20,6 +18,10 @@ This is needs some work to clean the code and put things in a logical ways! - We
 
 ####  ▪️ Genetic variation comparison (Pi, Dxy, Fst, He, Fis, LD)
 1. [Pixy](https://github.com/ksamuk/pixy.git) was applied to 
+
+Please cite the paper: 
+
+Ciation: [Ning, W., Rogers, K.M., Hsu, CY. et al. Origin and diversity of the wild cottons (*Gossypium hirsutum*) of Mound Key, Florida. Sci Rep 14, 14046 (2024). https://doi.org/10.1038/s41598-024-64887-8](https://www.nature.com/articles/s41598-024-64887-8)
 
 ####  ▪️ Novel SNPs tabulating
 1. Bcftools
