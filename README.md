@@ -8,7 +8,7 @@ This is needs some work to clean the code and put things in a logical ways! - We
 ####  ▪️ Pop gene analysis (PCA, NJ-tree, Structure)
 1. All AD1 65 samples' raw reads were trimmed with [Trimmomatic](https://github.com/usadellab/Trimmomatic.git).
 
-2. Following [sentieon-dnaseq](https://github.com/Sentieon/sentieon-dnaseq.git), trimmmed reads mapping; GVCF calling; VCF calling. 
+2. Following [sentieon-dnaseq](https://github.com/Sentieon/sentieon-dnaseq.git), trimmmed reads were mapped to the reference genome; then GVCF calling; VCF calling. 
   
 3. SNPs filtering via [vcftools](https://vcftools.sourceforge.net/man_latest.html) and [bcftools](https://samtools.github.io/bcftools/bcftools.html). 
 
@@ -17,14 +17,18 @@ This is needs some work to clean the code and put things in a logical ways! - We
 5. Building a rooted NJ-tree via PLINK & [ape](https://cran.r-project.org/web/packages/ape/index.html) using bialleic SNPs by including additional two AD4 outgroups. 
 
 ####  ▪️ Genetic variation comparison (Pi, Dxy, Fst, He, Fis, LD)
-1. [Pixy](https://github.com/ksamuk/pixy.git) was applied to 
+1. [Pixy](https://github.com/ksamuk/pixy.git) was applied to calculate Pi, Dxy and Fst between four groups and MK cotton.
+
+2. Vcftools was applied to cacluate He, Fis
+
+3. [PopLDdecay](https://github.com/BGI-shenzhen/PopLDdecay) was applied to estimate LD decay between all five groups.
 
 
 ####  ▪️ Novel SNPs tabulating
-1. Bcftools
+1. Bcftools and *awk* was applied to tabulate the novel SNPs.
 
 ####  ▪️ MK cotton population demographic analysis (PCA, Tajima's D, SFS, Ne)
-
+1. [Angsd](https://www.popgen.dk/angsd/index.php/Thetas,Tajima,Neutrality_tests) 
 
 ### Please cite the paper: 
 
