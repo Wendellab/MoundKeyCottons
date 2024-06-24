@@ -1,5 +1,5 @@
 
-##### #Plink calucation 
+##### Plink calucation 
 ### select genic regions for 74 samples
 #module load bedops/2.4.41
 #convert2bed --input=gtf  < TX2094.renamed.gtf | grep -wF gene > TX2094_3_gene.bed
