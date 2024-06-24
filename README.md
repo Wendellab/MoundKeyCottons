@@ -1,10 +1,9 @@
 # Mound Key Wild Cotton
+<img src="https://github.com/Wendellab/MoundKeyCottons/blob/main/Supplymentary/IMG_3837.JPG" width="200" />
 
 ### Codes following the data analysis order presented in the paper, including:
 
 This is needs some work to clean the code and put things in a logical ways! - Weixuan is on it   😝
-
-<img src="https://github.com/Wendellab/MoundKeyCottons/blob/main/Supplymentary/IMG_3837.JPG" width="200" />
 
 ####  ▪️ Pop gene analysis (PCA, NJ-tree, Structure)
 1. All AD1 65 samples' raw reads were trimmed with [Trimmomatic](https://github.com/usadellab/Trimmomatic.git).
