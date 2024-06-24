@@ -20,7 +20,6 @@ output2=MK_Known_n65
 mkdir $output2
 
 module load sentieon-genomics/202308-mdtz2zq
-export SENTIEON_LICENSE=reimu.las.iastate.edu:8990
 
 #joint SNP calling:
 #cat reheader.txt | grep -v 'AD' | awk '{print "/work/LAS/jfw-lab/weixuan/04_MK_Known_gvcf/gvcf_n74/"$1}' | sed 's/\\/.gVCF/g' > ../VCF_output3/list_of_gvcfs_n65.txt
