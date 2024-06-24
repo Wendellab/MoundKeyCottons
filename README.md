@@ -22,7 +22,7 @@ This is needs some work to clean the code and put things in a logical ways! - We
 
 
 ####  ▪️ Genetic variation comparison (Pi, Dxy, Fst, He, Fis, LD)
-1. [Pixy](https://github.com/ksamuk/pixy.git) was applied to calculate Pi, Dxy and Fst between four groups and MK cotton.
+1. [Pixy](https://github.com/ksamuk/pixy.git) was applied to calculate Pi, Dxy and Fst of 65 AD1 samples between four groups and MK cotton.
 
 2. Vcftools was applied to cacluate He, Fis
 
