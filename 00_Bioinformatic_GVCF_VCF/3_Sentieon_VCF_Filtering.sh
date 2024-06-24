@@ -1,13 +1,4 @@
 #!/bin/bash
-#SBATCH --nodes=1
-#SBATCH --cpus-per-task=30
-#SBATCH --mem=200G 
-#SBATCH --time=5-00:00:00
-#SBATCH --mail-user=weixuan@iastate.edu
-#SBATCH --mail-type=ALL
-#SBATCH --open-mode=append
-#SBATCH --output="job.vcf_n65.%J.out"
-#SBATCH --job-name="jointGeno_n65"
 
 ref=/work/LAS/jfw-lab/weixuan/TX2094.genome.fasta
 thr=30 #NUMBER_THREADS
