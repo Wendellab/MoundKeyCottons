@@ -11,11 +11,10 @@ This is needs some work to clean the code and put things in a logical ways! - We
 
 2. Following [sentieon-dnaseq](https://github.com/Sentieon/sentieon-dnaseq.git), trimmmed reads mapping; GVCF calling; VCF calling. 
   
-
-3. SNPs filtering via vcftools 
-
+3. SNPs filtering via [vcftools](https://vcftools.sourceforge.net/man_latest.html) and [bcftools](https://samtools.github.io/bcftools/bcftools.html). 
 
 4. Using biallelic SNPs to estimate population genetic groups via [PLINK](https://www.cog-genomics.org/plink/) (PCA) and [LEA](https://bioconductor.org/packages/release/bioc/html/LEA.html).
+   
 5. Including additional two AD4 samples as outgroup, and calling bialleic SNPs from the 'combined' VCF with 65 AD1 samples, which include variable and invariable sites.
 
 ####  ▪️ Genetic variation comparison (Pi, Dxy, Fst, He, Fis, LD)
