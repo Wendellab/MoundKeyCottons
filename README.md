@@ -19,13 +19,14 @@ This is needs some work to clean the code and put things in a logical ways! - We
 ####  ▪️ Genetic variation comparison (Pi, Dxy, Fst, He, Fis, LD)
 1. [Pixy](https://github.com/ksamuk/pixy.git) was applied to 
 
-Please cite the paper: 
-
-Ciation: [Ning, W., Rogers, K.M., Hsu, CY. et al. Origin and diversity of the wild cottons (*Gossypium hirsutum*) of Mound Key, Florida. Sci Rep 14, 14046 (2024). https://doi.org/10.1038/s41598-024-64887-8](https://www.nature.com/articles/s41598-024-64887-8)
 
 ####  ▪️ Novel SNPs tabulating
 1. Bcftools
 
 ####  ▪️ MK cotton population demographic analysis (PCA, Tajima's D, SFS, Ne)
 
+
+### Please cite the paper: 
+
+Ciation: [Ning, W., Rogers, K.M., Hsu, CY. et al. Origin and diversity of the wild cottons (*Gossypium hirsutum*) of Mound Key, Florida. Sci Rep 14, 14046 (2024). https://doi.org/10.1038/s41598-024-64887-8](https://www.nature.com/articles/s41598-024-64887-8)
 
