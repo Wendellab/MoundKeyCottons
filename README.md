@@ -6,17 +6,17 @@ This is needs some work to clean the code and put things in a logical ways! - We
 
 ### Codes following the data analysis order presented in the paper, including:
 
-#### Pop gene analysis (PCA, NJ-tree, Structure)
+####  👉 Pop gene analysis (PCA, NJ-tree, Structure)
 1. Using [sentieon-dnaseq](https://github.com/Sentieon/sentieon-dnaseq.git), AD1 65 samples' raw reads trimming and mapping; GVCF calling; VCF calling; SNPs filtering.
 2. Using biallelic SNPs to estimate population genetic groups via [PLINK](https://www.cog-genomics.org/plink/) (PCA) and [LEA](https://bioconductor.org/packages/release/bioc/html/LEA.html).
 3. Including additional two AD4 samples as outgroup, and calling bialleic SNPs from the 'combined' VCF with 65 AD1 samples, which include variable and invariable sites.
 
-#### Genetic variation comparison (Pi, Dxy, Fst, He, Fis, LD)
+####  👉 Genetic variation comparison (Pi, Dxy, Fst, He, Fis, LD)
 1. [Pixy](https://github.com/ksamuk/pixy.git) was applied to 
 
-#### Novel SNPs tabulating
+####  👉 Novel SNPs tabulating
 1. Bcftools
 
-#### MK cotton population demographic analysis (PCA, Tajima's D, SFS, Ne)
+####  👉 MK cotton population demographic analysis (PCA, Tajima's D, SFS, Ne)
 
 
