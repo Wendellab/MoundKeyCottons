@@ -4,6 +4,8 @@ Ciation: [Ning, W., Rogers, K.M., Hsu, CY. et al. Origin and diversity of the wi
 
 This is needs some work to clean the code and put things in a logical ways! - Weixuan is on it   😝
 
+![Alt text](https://github.com/Wendellab/MoundKeyCottons/blob/main/Supplymentary/IMG_3837.JPG)
+
 ### Codes following the data analysis order presented in the paper, including:
 
 ####  ▪️ Pop gene analysis (PCA, NJ-tree, Structure)
