@@ -8,7 +8,7 @@ This is needs some work to clean the code and put things in a logical ways! - We
 
 #### Pop gene analysis (PCA, NJ-tree, Structure)
 1. AD1 65 samples' raw reads trimming and mapping; GVCF calling; VCF calling; SNPs filtering.
-2. Using biallelic SNPs to estimate population genetic groups via PLINK (PCA) and LEA.
+2. Using biallelic SNPs to estimate population genetic groups via [PLINK](https://www.cog-genomics.org/plink/) (PCA) and [LEA](https://bioconductor.org/packages/release/bioc/html/LEA.html).
 3. Including additional two AD4 samples as outgroup, and calling bialleic SNPs from the 'combined' VCF with 65 AD1 samples, which include variable and invariable sites.
 
 #### Genetic variation comparison (Pi, Dxy, Fst, He, Fis, LD)
