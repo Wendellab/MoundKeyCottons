@@ -1,21 +1,12 @@
 #!/bin/bash
-#SBATCH --nodes=1 
-#SBATCH --cpus-per-task=20 
-#SBATCH --mem=200G 
-#SBATCH --time=5-02:30:00
-#SBATCH --open-mode=append
-#SBATCH --mail-user=weixuan@iastate.edu
-#SBATCH --mail-type=ALL
-#SBATCH --output=joblog/job.makeGVCF.%A_%a.out 
-#SBATCH --job-name="makeGVCF"
-#SBATCH --exclude=legion-[1-8]
-#SBATCH --array=1-3
 
-DIR=/work/LAS/jfw-lab/weixuan/03_Ggvcf/AD4_Outgroup/00_rawreads
-tDir=/work/LAS/jfw-lab/weixuan/03_Ggvcf/AD4_Outgroup/00_rawreads/trimmedReads
-ref=/work/LAS/jfw-lab/weixuan/TX2094.genome.fasta
+# set up directories
+DIR=/Path/to/working/dir
+tDir=/Path/to/dir/with/trimmed/reads
+ref=/Path/to/dir/with/reference
 thr=20
 
+# load forward and reverse reads
 file1=$(ls -1 $DIR/*_1.fastq.gz | sed -n ${SLURM_ARRAY_TASK_ID}p)
 file2=$(ls -1 $DIR/*_1.fastq.gz | sed -n ${SLURM_ARRAY_TASK_ID}p| sed 's/_1[.]fastq/_2\.fastq/')
 
