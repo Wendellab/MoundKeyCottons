@@ -1,8 +1,17 @@
 # Mound Key Wild Cotton
 <img src="https://github.com/Wendellab/MoundKeyCottons/blob/main/Supplymentary/IMG_3837.JPG" width="200" />
 
-### Please cite the paper: 
+### Abstract
+Elucidating genetic diversity within wild forms of modern crops is essential for understanding domestication and the possibilities of wild germplasm utilization. *Gossypium hirsutum* is a
+predominant source of natural plant fibers and the most widely cultivated cotton species. Wild forms of *G. hirsutum* are challenging to distinguish from feral derivatives, and truly wild populations are uncommon. Here we characterize a population from Mound Key Archaeological State Park, Florida using genome-wide SNPs extracted from 25 individuals over three sites. Our results reveal that this population is genetically dissimilar from other known wild, landrace, and domesticated cottons, and likely represents a pocket of previously unrecognized wild genetic diversity. The unexpected level of divergence between the Mound Key population and other wild cotton populations suggests that the species may harbor other remnant and genetically distinct populations that are geographically scattered in suitable habitats throughout the Caribbean. Our work thus has broader conservation genetic implications and suggests that further exploration of natural diversity in this species is warranted.
+
+### Cite the paper: 
 [Ning, W., Rogers, K.M., Hsu, CY. et al. Origin and diversity of the wild cottons (*Gossypium hirsutum*) of Mound Key, Florida. Sci Rep 14, 14046 (2024). https://doi.org/10.1038/s41598-024-64887-8](https://www.nature.com/articles/s41598-024-64887-8)
+
+### Behind the paper:
+[Discovery of genetic diversity left behind by the bottleneck of cotton domestication](https://go.nature.com/3S9yqkV)
+
+#
 
 
 ### Codes following the data analysis order presented in the paper, including:
