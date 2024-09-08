@@ -1,5 +1,4 @@
 # Mound Key Wild Cotton
-<img src="https://github.com/Wendellab/MoundKeyCottons/blob/main/Supplymentary/IMG_3837.JPG" width="200" />
 
 ### Abstract
 Elucidating genetic diversity within wild forms of modern crops is essential for understanding domestication and the possibilities of wild germplasm utilization. *Gossypium hirsutum* is a
