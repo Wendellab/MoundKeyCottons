@@ -1,4 +1,4 @@
-## angsd
+## angsd, SFS and Tajimas'd 
 
 ### angsd 
 ```
