@@ -39,14 +39,6 @@ Rscript LEA_n65.R
 ### Pixy run
 ```
 module purge
-mkdir $Dir/$output1/Pixy_n65
-cd $Dir/$output1/Pixy_n65
-
-awk '{print $1, $NF}' $Dir/subset_n65samples.txt | awk -F' ' -vOFS='\t' '{ gsub("_.*", "", $2); gsub("MK.*", "MK", $2)  ; print }' > pixy_populationlist.txt
-```
-
-```
-module purge
 mkdir $Dir/$output2/Pixy_n65
 cd $Dir/$output2/Pixy_n65
 
