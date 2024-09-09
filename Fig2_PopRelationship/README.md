@@ -1,5 +1,5 @@
 
-#### Plink calucation 
+## Plink, LEA & Pixy calucation 
 ### select genic regions for all samples
 ```
 #module load bedops/2.4.41
