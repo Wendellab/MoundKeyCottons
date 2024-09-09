@@ -50,3 +50,33 @@ micromamba activate
 pixy --stats pi fst dxy --vcf $Dir/$output2/$output2.combined.vcf.gz --populations pixy_populationlist.txt --window_size 10000 --n_cores $thr --output_prefix $output2
 micromamba deactivate
 ```
+
+### PopLDdecay  run
+```
+
+for i in {1..50}; do
+  shuf -n 10 MK.list > MK.list_"$i"
+  ./PopLDdecay/bin/PopLDdecay -InVCF MK_Known_n65.variant.rehead.vcf.gz -OutStat MK.list_"$i".stat.gz -SubPop MK.list_"$i" -MaxDist 500
+done
+
+ls $PWD/*stat.gz | awk '{print $1, $1}' | awk '{gsub("/work/LAS/jfw-lab/weixuan/04_MK_Known_gvcf/VCF_output3/MK_Known_n65/LD_decay/","", $2); gsub (".stat.gz", "", $2); print}' > Pop.ResultPath.list
+
+module load r
+perl ./PopLDdecay/bin/Plot_MultiPop.pl  -inList  Pop.ResultPath.list  -output Fig
+
+
+
+ml bcftools
+bcftools query -l MK_Known_n65.variant.rehead.vcf.gz | grep 'MK' > MK.list
+bcftools query -l MK_Known_n65.variant.rehead.vcf.gz | grep 'Cultivar' > Cultivar.list
+bcftools query -l MK_Known_n65.variant.rehead.vcf.gz | grep 'Wild' > Wild.list
+bcftools query -l MK_Known_n65.variant.rehead.vcf.gz | grep 'Landrace1' > Landrace1.list
+bcftools query -l MK_Known_n65.variant.rehead.vcf.gz | grep 'Landrace2' > Landrace2.list
+
+./PopLDdecay/bin/PopLDdecay -InVCF MK_Known_n65.variant.rehead.vcf.gz -OutStat Wild.stat.gz -SubPop Wild.list -MaxDist 500
+./PopLDdecay/bin/PopLDdecay -InVCF MK_Known_n65.variant.rehead.vcf.gz -OutStat Cultivar.stat.gz -SubPop Cultivar.list -MaxDist 500
+./PopLDdecay/bin/PopLDdecay -InVCF MK_Known_n65.variant.rehead.vcf.gz -OutStat Landrace1.stat.gz -SubPop Landrace1.list -MaxDist 500
+./PopLDdecay/bin/PopLDdecay -InVCF MK_Known_n65.variant.rehead.vcf.gz -OutStat Landrace2.stat.gz -SubPop Landrace2.list -MaxDist 500
+./PopLDdecay/bin/PopLDdecay -InVCF MK_Known_n65.variant.rehead.vcf.gz -OutStat MK.stat.gz -SubPop MK.list -MaxDist 500
+```
+
