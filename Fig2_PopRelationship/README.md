@@ -1,6 +1,7 @@
 
 ##### Plink calucation 
 ### select genic regions for 74 samples
+```
 #module load bedops/2.4.41
 #convert2bed --input=gtf  < TX2094.renamed.gtf | grep -wF gene > TX2094_3_gene.bed
 
@@ -12,7 +13,9 @@ tabix -R $bedfile -h $Dir/$output1/$output1.variant.rehead.vcf.gz > $Dir/$output
 module purge 
 module load plink/1.90b6.21
 ml bcftools
-
+```
+### Plink running
+```
 bcftools annotate --set-id +"%CHROM:%POS" $output1.variant.rehead.genic.vcf > $output1.variant.rehead.genic.id.vcf
 plink --vcf-filter --vcf $output1.variant.rehead.genic.id.vcf --allow-extra-chr --recode  --make-bed --geno 0 --const-fid --out $output1
 plink --indep-pairwise 50 10 0.1 --file $output1 --allow-extra-chr --out $output1
@@ -20,6 +23,7 @@ plink --extract $output1.prune.in --out $output1-pruned --file $output1 --make-b
 plink --pca 20 var-wts --file $output1-pruned --allow-extra-chr --out $output1
 plink --freq --het 'small-sample' --ibc --file $output1-pruned --allow-extra-chr -out $output1-pruned
 paste -d '\t' $output1-pruned.mdist.id $output1-pruned.mdist > $output1-pruned.distmatrix
+```
 
 ##### #LEA calucation 
 ### select genic regions for 74 samples
