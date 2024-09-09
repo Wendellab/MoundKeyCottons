@@ -1,5 +1,5 @@
 
-## Plink, LEA & Pixy  
+## Plink, LEA, Pixy & PopLDdecay  
 ### select genic regions for all samples
 ```
 #module load bedops/2.4.41
